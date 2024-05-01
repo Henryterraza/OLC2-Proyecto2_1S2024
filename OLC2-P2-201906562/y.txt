@@ -1,0 +1,158 @@
+addi t1,t2,%lo(label)   Load Lower Address : Set t1 to t2 + lower 12-bit label's address
+b label                 Branch : Branch to statement at label unconditionally
+beqz t1,label           Branch if EQual Zero : Branch to statement at label if t1 == 0
+bgez t1,label           Branch if Greater than or Equal to Zero : Branch to statement at label if t1 >= 0
+bgt  t1,t2,label        Branch if Greater Than : Branch to statement at label if t1 > t2
+bgtu t1,t2,label        Branch if Greater Than Unsigned: Branch to statement at label if t1 > t2 (unsigned compare)
+bgtz t1,label           Branch if Greater Than Zero: Branch to statement at label if t1 > 0
+ble  t1,t2,label        Branch if Less or Equal : Branch to statement at label if t1 <= t2
+bleu t1,t2,label        Branch if Less or Equal Unsigned : Branch to statement at label if t1 <= t2 (unsigned compare)
+blez t1,label           Branch if Less than or Equal to Zero : Branch to statement at label if t1 <= 0
+bltz t1,label           Branch if Less Than Zero : Branch to statement at label if t1 < 0
+bnez t1,label           Branch if Not Equal Zero : Branch to statement at label if t1 != 0
+call label              CALL: call a far-away subroutine
+csrc t1, fcsr           Clear bits in control and status register
+csrci fcsr, 100         Clear bits in control and status register
+csrr t1, fcsr           Read control and status register
+csrs t1, fcsr           Set bits in control and status register
+csrsi fcsr, 100         Set bits in control and status register
+csrw t1, fcsr           Write control and status register
+csrwi fcsr, 100         Write control and status register
+fabs.d f1, f2            Set f1 to the absolute value of f2 (64 bit)
+fabs.s f1, f2            Set f1 to the absolute value of f2
+fadd.d    f1, f2, f3     Floating ADD (64 bit): assigns f1 to f2 + f3
+fadd.s    f1, f2, f3     Floating ADD: assigns f1 to f2 + f3
+fcvt.d.s f1, f2          Convert float to double: Assigned the value of f2 to f1
+fcvt.d.w  f1, t1         Convert double from signed integer: Assigns the value of t1 to f1
+fcvt.d.wu f1, t1         Convert double from unsigned integer: Assigns the value of t1 to f1
+fcvt.s.d f1, f2          Convert double to float: Assigned the value of f2 to f1
+fcvt.s.w  f1, t1         Convert float from signed integer: Assigns the value of t1 to f1
+fcvt.s.wu f1, t1         Convert float from unsigned integer: Assigns the value of t1 to f1
+fcvt.w.d  t1, f1         Convert signed integer from double: Assigns the value of f1 (rounded) to t1
+fcvt.w.s  t1, f1         Convert signed integer from float: Assigns the value of f1 (rounded) to t1
+fcvt.wu.d t1, f1         Convert unsigned integer from double: Assigns the value of f1 (rounded) to t1
+fcvt.wu.s t1, f1         Convert unsigned integer from float: Assigns the value of f1 (rounded) to t1
+fdiv.d    f1, f2, f3     Floating DIVide (64 bit): assigns f1 to f2 / f3
+fdiv.s    f1, f2, f3     Floating DIVide: assigns f1 to f2 / f3
+fge.d t1, f2, f3        Floating Greater Than or Equal (64 bit): if f2 >= f3, set t1 to 1, else set t1 to 0
+fge.s t1, f2, f3        Floating Greater Than or Equal: if f2 >= f3, set t1 to 1, else set t1 to 0
+fgt.d t1, f2, f3        Floating Greater Than (64 bit): if f2 > f3, set t1 to 1, else set t1 to 0
+fgt.s t1, f2, f3        Floating Greater Than: if f2 > f3, set t1 to 1, else set t1 to 0
+fld f1,%lo(label)(t2)   Load from Address
+fld f1,(t2)             Load Word: Set f1 to 64-bit value from effective memory word address
+fld f1,-100             Load Word: Set f1 to 64-bit value from effective memory word address
+fld f1,10000000,t3      Load Word: Set f1 to 64-bit value from effective memory word address using t3 as a temporary
+fld f1,label, t3        Load Word: Set f1 to 64-bit value from effective memory word address using t3 as a temporary
+flw f1,%lo(label)(t2)   Load from Address
+flw f1,(t2)             Load Word Coprocessor 1 : Set f1 to 32-bit value from effective memory word address
+flw f1,-100             Load Word Coprocessor 1 : Set f1 to 32-bit value from effective memory word address
+flw f1,10000000,t3      Load Word Coprocessor 1 : Set f1 to 32-bit value from effective memory word address using t3 as a temporary
+flw f1,label, t3        Load Word Coprocessor 1 : Set f1 to 32-bit value from effective memory word address using t3 as a temporary
+fmadd.d   f1, f2, f3, f4 Fused Multiply Add (64 bit): Assigns f2*f3+f4 to f1
+fmadd.s   f1, f2, f3, f4 Fused Multiply Add: Assigns f2*f3+f4 to f1
+fmsub.d   f1, f2, f3, f4 Fused Multiply Subatract (64 bit): Assigns f2*f3-f4 to f1
+fmsub.s   f1, f2, f3, f4 Fused Multiply Subatract: Assigns f2*f3-f4 to f1
+fmul.d    f1, f2, f3     Floating MULtiply (64 bit): assigns f1 to f2 * f3
+fmul.s    f1, f2, f3     Floating MULtiply: assigns f1 to f2 * f3
+fmv.d  f1, f2            Move the value of f2 to f1 (64 bit)
+fmv.s  f1, f2            Move the value of f2 to f1
+fmv.w.x f1, t1          Move float (New mnemonic): move bits representing a float from an integer register
+fmv.x.w t1, f1          Move float (New mnemonic): move bits representing a float to an integer register
+fneg.d f1, f2            Set f1 to the negation of f2 (64 bit)
+fneg.s f1, f2            Set f1 to the negation of f2
+fnmadd.d  f1, f2, f3, f4 Fused Negate Multiply Add (64 bit): Assigns -(f2*f3+f4) to f1
+fnmadd.s  f1, f2, f3, f4 Fused Negate Multiply Add: Assigns -(f2*f3+f4) to f1
+fnmsub.d  f1, f2, f3, f4 Fused Negated Multiply Subatract (64 bit): Assigns -(f2*f3-f4) to f1
+fnmsub.s  f1, f2, f3, f4 Fused Negated Multiply Subatract: Assigns -(f2*f3-f4) to f1
+frcsr t1                Read FP control/status register
+frflags t1              Read FP exception flags
+frrm t1                 Read FP rounding mode
+frsr t1                 Alias for frcsr t1
+fscsr t1                Write FP control/status register
+fscsr t1, t2            Swap FP control/status register
+fsd f1,(t2)             Store Word: Store 64-bit value from f1 to effective memory word address
+fsd f1,-100             Store Word: Store 64-bit value from f1 to effective memory word address
+fsd f1,10000000,t3      Store Word: Store 64-bit value from f1 to effective memory word address using t3 as a temporary
+fsd f1,label, t3        Store Word: Store 64-bit value from f1 to effective memory word address using t3 as a temporary
+fsflags t1              Write FP exception flags
+fsflags t1, t2          Swap FP exception flags
+fsqrt.d   f1, f2         Floating SQuare RooT (64 bit): Assigns f1 to the square root of f2
+fsqrt.s   f1, f2         Floating SQuare RooT: Assigns f1 to the square root of f2
+fsrm t1                 Write FP rounding mode
+fsrm t1, t2             Swap FP rounding mode
+fssr t1                 Alias for fscsr t1 
+fssr t1, t2             Alias for fscsr t1, t2
+fsub.d    f1, f2, f3     Floating SUBtract (64 bit): assigns f1 to f2 - f3
+fsub.s    f1, f2, f3     Floating SUBtract: assigns f1 to f2 - f3
+fsw f1,(t2)             Store Word Coprocessor 1 : Store 32-bit value from f1 to effective memory word address
+fsw f1,-100             Store Word Coprocessor 1 : Store 32-bit value from f1 to effective memory word address
+fsw f1,10000000,t3      Store Word Coprocessor 1 : Store 32-bit value from f1 to effective memory word address using t3 as a temporary
+fsw f1,label, t3        Store Word Coprocessor 1 : Store 32-bit value from f1 to effective memory word address using t3 as a temporary
+j label                 Jump : Jump to statement at label
+jal label               Jump And Link: Jump to statement at label and set the return address to ra
+jalr t0                 Jump And Link Register: Jump to address in t0 and set the return address to ra
+jalr t0, -100           Jump And Link Register: Jump to address in t0 and set the return address to ra
+jalr t0,-100(t1)        Jump And Link Register: Jump to address in t1 and set the return address to t0
+jr t0                   Jump Register: Jump to address in t0
+jr t0, -100             Jump Register: Jump to address in t0
+la t1,label             Load Address : Set t1 to label's address
+lb t1,%lo(label)(t2)    Load from Address
+lb t1,(t2)              Load Byte : Set t1 to sign-extended 8-bit value from effective memory byte address
+lb t1,-100              Load Byte : Set $1 to sign-extended 8-bit value from effective memory byte address
+lb t1,10000000          Load Byte : Set $t1 to sign-extended 8-bit value from effective memory byte address
+lb t1,label	            Load Byte : Set $t1 to sign-extended 8-bit value from effective memory byte address
+lbu t1,(t2)             Load Byte Unsigned : Set $t1 to zero-extended 8-bit value from effective memory byte address
+lbu t1,-100             Load Byte Unsigned : Set $t1 to zero-extended 8-bit value from effective memory byte address
+lbu t1,10000000         Load Byte Unsigned : Set t1 to zero-extended 8-bit value from effective memory byte address
+lbu t1,label	           Load Byte Unsigned : Set t1 to zero-extended 8-bit value from effective memory byte address
+lh t1,%lo(label)(t2)    Load from Address
+lh t1,(t2)              Load Halfword : Set t1 to sign-extended 16-bit value from effective memory halfword address
+lh t1,-100              Load Halfword : Set t1 to sign-extended 16-bit value from effective memory halfword address
+lh t1,10000000          Load Halfword : Set t1 to sign-extended 16-bit value from effective memory halfword address
+lh t1,label	            Load Halfword : Set t1 to sign-extended 16-bit value from effective memory halfword address
+lhu t1,(t2)             Load Halfword Unsigned : Set t1 to zero-extended 16-bit value from effective memory halfword address
+lhu t1,-100             Load Halfword Unsigned : Set t1 to zero-extended 16-bit value from effective memory halfword address
+lhu t1,10000000         Load Halfword Unsigned : Set t1 to zero-extended 16-bit value from effective memory halfword address
+lhu t1,label	           Load Halfword Unsigned : Set t1 to zero-extended 16-bit value from effective memory halfword address
+li t1,-100              Load Immediate : Set t1 to 12-bit immediate (sign-extended)
+li t1,10000000          Load Immediate : Set t1 to 32-bit immediate
+lui t1,%hi(label)       Load Upper Address : Set t1 to upper 20-bit label's address
+lw t1,%lo(label)(t2)    Load from Address
+lw t1,(t2)              Load Word : Set t1 to contents of effective memory word address
+lw t1,-100              Load Word : Set t1 to contents of effective memory word address
+lw t1,10000000          Load Word : Set t1 to contents of effective memory word address
+lw t1,label	            Load Word : Set t1 to contents of memory word at label's address
+mv  t1,t2               MoVe : Set t1 to contents of t2
+neg t1,t2               NEGate : Set t1 to negation of t2
+nop                     NO OPeration
+not t1,t2               Bitwise NOT (bit inversion)
+rdcycle t1               Read from cycle
+rdcycleh t1              Read from cycleh
+rdinstret t1             Read from instret
+rdinstreth t1            Read from instreth
+rdtime t1                Read from time
+rdtimeh t1               Read from timeh
+ret                     Return: return from a subroutine
+sb t1,(t2)              Store Byte : Store the low-order 8 bits of t1 into the effective memory byte address
+sb t1,-100              Store Byte : Store the low-order 8 bits of $t1 into the effective memory byte address
+sb t1,10000000,t2       Store Byte : Store the low-order 8 bits of $t1 into the effective memory byte address
+sb t1,label,t2          Store Byte : Store the low-order 8 bits of $t1 into the effective memory byte address
+seqz t1,t2              Set EQual to Zero :     if t2 == 0 then set t1 to 1 else 0
+sext.b t1, t2           Sign EXTend Byte: extract the low byte from t2 and sign extend it into t1
+sext.h t1, t2           Sign EXTend Half: extract the low 16 bit from t2 and sign extend it into t1
+sgt  t1,t2,t3           Set Greater Than : if t2 greater than t3 then set t1 to 1 else 0
+sgtu t1,t2,t3           Set Greater Than Unsigned : if t2 greater than t3 (unsigned compare) then set t1 to 1 else 0
+sgtz t1,t2              Set Greater Than Zero : if t2 >  0 then set t1 to 1 else 0
+sh t1,(t2)              Store Halfword : Store the low-order 16 bits of $1 into the effective memory halfword address
+sh t1,-100              Store Halfword : Store the low-order 16 bits of $t1 into the effective memory halfword address
+sh t1,10000000,t2       Store Halfword : Store the low-order 16 bits of t1 into the effective memory halfword address using t2 as a temporary
+sh t1,label,t2          Store Halfword : Store the low-order 16 bits of t1 into the effective memory halfword address using t2 as a temporary
+sltz t1,t2              Set Less Than Zero :    if t2 <  0 then set t1 to 1 else 0
+snez t1,t2              Set Not Equal to Zero : if t2 != 0 then set t1 to 1 else 0
+sw t1,(t2)              Store Word : Store t1 contents into effective memory word address
+sw t1,-100              Store Word : Store $t1 contents into effective memory word address
+sw t1,10000000,t2       Store Word : Store $t1 contents into effective memory word address using t2 as a temporary
+sw t1,label,t2          Store Word : Store $t1 contents into memory word at label's address using t2 as a temporary
+tail label              TAIL call: tail call (call without saving return address)a far-away subroutine
+zext.b t1, t2           Zero EXTend Byte: extract the low byte into t1
+zext.h t1, t2           Zero EXTend Half: extract the low 16 bit into t1
